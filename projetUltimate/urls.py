@@ -1,7 +1,7 @@
 """projetUltimate URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.9/topics/http/urls/
+    https://docs.djangoproject.com/en/1.9/topics/http/urls_monbord/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -10,13 +10,18 @@ Class-based views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
 Including another URLconf
-    1. Add an import:  from blog import urls as blog_urls
-    2. Import the include() function: from django.conf.urls import url, include
+    1. Add an import:  from blog import urls_monbord as blog_urls
+    2. Import the include() function: from django.conf.urls_monbord import url, include
     3. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import url
+
 from django.contrib import admin
+from monbord import urls_monbord
+from django.conf.urls import url,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^monbord/', include("monbord.urls_monbord"))
 ]
