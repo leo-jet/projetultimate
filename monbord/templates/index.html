@@ -1,16 +1,30 @@
-{% extends 'base.html' %}
-
-{% block pageheader %}
-				<div class="col-lg-12">
-					<h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-						<li><i class="fa fa-bars"></i>Pages</li>
-						<li><i class="fa fa-square-o"></i>Pages</li>
-					</ol>
-				</div>
-{% endblock %}
-
-{% block content %}
-	Debut d'une nouvelle ere
+{% extends 'base.html' %} {% block pageheader %}
+<div class="col-lg-12">
+	<h3 class="page-header">
+		<i class="fa fa fa-laptop"></i> TABLEAU DE BORD
+	</h3>
+	<ol class="breadcrumb">
+		<li><i class="fa fa-home"></i><a href="index.html">Accueil</a></li>
+		<li><i class="fa fa-laptop"></i>Tableau de bord</li>
+	</ol>
+</div>
+{% endblock %} {% block content %}
+<section class="panel">
+	<header class="panel-heading tab-bg-primary ">
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">Cours</a></li>
+			<li class=""><a data-toggle="tab" href="#about">Formulaire</a></li>
+			<li class=""><a data-toggle="tab" href="#profile">Exercices d'entrainement</a></li>
+			<li class=""><a data-toggle="tab" href="#contact">Fiches d'exercices</a></li>
+		</ul>
+	</header>
+	<div class="panel-body">
+		<div class="tab-content">
+			<div id="home" class="tab-pane active">Home</div>
+			<div id="about" class="tab-pane">About</div>
+			<div id="profile" class="tab-pane">Profile</div>
+			<div id="contact" class="tab-pane">Contact</div>
+		</div>
+	</div>
+</section>
 {% endblock %}

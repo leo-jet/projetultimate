@@ -1,3 +1,22 @@
+from django.shortcuts import render
+from sympy import *
+import random
+from django.db import models
+from monbord.modules.complexes import *
+from django.core.files import File
+import os
+import json 
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+#latex
+from django.http import HttpResponse
+from django.template import Context
+from django.template.loader import get_template
+from subprocess import Popen, PIPE
+import tempfile
+
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import (
     authenticate, 
@@ -24,6 +43,13 @@ def login_view(request):
 def index(request):
     return render(request, "index.html", {})
 
+def complexes(request):
+    content = []
+    return render(request, "complexes.html", content)
+
 def logout_view(request):
     logout(request)
     return render(request, "login.html", {})
+
+def chatroom(request):
+    return render(request, "room.html", {})
