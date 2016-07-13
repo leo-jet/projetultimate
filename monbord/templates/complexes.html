@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+ {% block addHead %}
+	<script type="text/javascript" async
+		src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="https://www.geogebra.org/scripts/deployggb.js"></script>
+	<script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+<!-- 	
+	JSGRAPH librarie pour les graphes
+	<link rel="stylesheet" type="text/css" href="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraph.css" />
+ 	<script type="text/javascript" src="http://jsxgraph.uni-bayreuth.de/distrib/jsxgraphcore.js"></script> -->
+{% endblock %} 
+
+
+{% block pageheader %}
+<div class="col-lg-12">
+	<h3 class="page-header">
+		<i class="fa fa fa-line-chart" aria-hidden="true"></i></i>Mathematiques
+	</h3>
+	<ol class="breadcrumb">
+		<li><i class="fa fa-home"></i><a href="index.html">Accueil</a></li>
+		<li><i class="fa fa-line-chart" aria-hidden="true"></i></i>Mathematiques</li>
+		<li>Nombres complexes</li>
+	</ol>
+</div>
+{% endblock %} 
+
+
+{% block content %}
+<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			tex2jax: {
+    			inlineMath: [['$','$'], ['\\(','\\)']],
+   				processEscapes: true
+  			}
+		});
+</script>
+<!-- liste d'exercices -->
+<div class="row">
+	<div class="col-lg-4">
+		<section class="panel">
+			<header class="panel-heading">{{titre}}</header>
+			<div class="panel-body">
+				{{enonce}}
+				<ol>
+					{% for q in question %}
+						<li>{{q}}</li>
+					{% endfor %}
+				</ol>
+				<p align="right">
+					<a class="btn btn-success btn-sm" href="#" title="Bootstrap 3 themes generator">Correction</a>
+	                <a class="btn btn-primary btn-sm" href="#" title="Bootstrap 3 themes generator">Ajouter</a>
+                </p>
+			<div id="jxgbox" class="jxgbox" style="width:500px; height:200px;"></div>
+			<script type="text/javascript">
+			 var board = JXG.JSXGraph.initBoard('jxgbox', {boundingbox: [-5, 2, 5, -2]});
+			 var p = board.create('point',[-3,1]);
+			</div>
+			</script>
+		</section>
+	</div>
+</div>
+<!-- fin liste d'exercices -->
+{% endblock %}
